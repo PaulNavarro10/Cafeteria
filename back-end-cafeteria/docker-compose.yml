@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  mongodb:
+    environment:
+      MONGO_INITDB_DATABASE: cafeteriadb
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    hostname: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+#      - ./data-mongodb:/data/db
+      - mongo-data:/data/db
+  api:
+    build: .
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+volumes:
+  mongo-data:
+
+   #python manage.py shell -c \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('root', 'admin@bootcamp.com', 'password')\" &&
