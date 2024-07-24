@@ -37,12 +37,7 @@ Abrir el navegador en la direccion http://127.0.0.1:8000
 *************************************************************************************FRONT-END ***********************************************************************************************
 Front-End de administracion de pedidos de cafeteria realizado como proyecto en el bootcamp FPUNA
 
-Clonar el repositorio
-
-git clone https://gitlab.com/bootcamp328/front-end-cafeteria.git
-
 cd front-end-cafeteria
-
 
 Instalar requerimientos
 
